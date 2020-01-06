@@ -1,0 +1,205 @@
+﻿@{
+    ViewData["Title"] = "ضع بصمتك";
+}
+
+
+<div class="container signalr-demo">
+
+    <div class="row pt-3">
+
+        <div class="d-none d-md-block col-md-5 offset-right-0">
+            <img class="offset-4" src="~/img/university.png">
+        </div>
+
+        <div class="col-12 d-block d-md-none text-center">
+            <img src="~/img/logo-sm.png">
+        </div>
+
+        <div class="col-md-4 offset-1 d-md-block d-none">
+            <img src="~/img/logo1.png">
+        </div>
+    </div>
+
+
+    <div class="row pt-2">
+        <div class="col-12 header-bg">
+            <h3 class="display-5 text-center">ضع بصمتك</h3>
+        </div>
+    </div>
+    <div class="row content-bg mt-2 pb-5">
+        <div class="col-12 text-center">
+            <div class="container mobile">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10 text-center">
+                        <p class="p-content">
+                            {هل تصورتِ يوماً عدد الأقدام التي سارت على هذه الأرض المباركة، ثم ارتحلت، من بينها أقدامٌ تلاشت آثار سيرها واختفى دويّ صيتها
+                            ‏وأقدامٌ عَبَرت وعبّرت عن الإنتماء في أسمى صوره..
+                            ‏والنماء في أصدق معانيه
+                            ‏لما علمت أن التجارة في مكة رابحة
+
+                            فاجعلي لكِ على ثرى مكّة أثراً يُخلّد}
+
+
+                        </p>
+
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 col-md-4"></div>
+                    <div class=" col-sm-6 col-md-4 mobile-bg">
+                        <img id="btnFinger" src="~/img/fingar.png" class="finger" />
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+
+                <div class="row pt-2 pb-3">
+                    <div class="col-2 d-none d-md-block"></div>
+                    <div class="col-3 col-md-2"><b class="ml-3"> الوصف  <span class="text-danger">*</span>:</b></div>
+
+                    <div class="col-3 col-md-2 ml-3 mr-2">
+                        <div class="ml-3 custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="employee" name="category" value="employee">
+                            <label class="custom-control-label" for="employee">منسوبة</label>
+                        </div>
+                    </div>
+
+                    <div class="col-3 col-md-2  mr-2">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input" id="student" name="category" value="student">
+                            <label class="custom-control-label" for="student">طالبة</label>
+                        </div>
+                    </div>
+
+                    <div class="col-3 col-md-2 d-sm-none d-md-block"></div>
+                </div>
+
+                <div class="col-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 alert alert-primary" id="msg1" style="display:none">
+                    <p>
+                        {ها أنتِ في موعدٍ لتكتبي بمداد التعظيم سطوراً من نور .. في صفحة من التاريخ المكي..
+                        فالتعظيم رِسالة كُلّ فرد، عاهدي نفسك على نشرها}
+                    </p>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10 title-bg ">
+                    <h3 class="text-center">المنظمين والمشاركين في المعرض</h3>
+                </div>
+                <div class="col-1"></div>
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-md-1"></div>
+
+                <div class="col-sm-12 col-md-3">
+                    <div class="card">
+                        <img src="/img/telgram.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:#4b8fda"><a href="https://t.me/programming_PS">انضم الي </a> </h5>
+                            <p class="card-text" style="font-size:18px;font-weight:500">مجموعة البرمجة خليها علينا</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-3 ">
+                    <div class="card pt-2">
+                        <img src="~/img/charity.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-3">
+                    <div class="card ">
+                        <img src="/img/twitter.jpg" class="card-img-top" alt="...">
+                        <div class="card-body" style="direction: ltr;">
+                            <h5 class="card-title"><a href="https://twitter.com/sayerAljohani">@@sayerAljohani</a></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="overlay" class="loader-image">
+        <p>من فضلك انتظر قليلا...</p>
+        <img src="~/img/ajax-loader.gif" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 footer-bg text-center pt-4">
+        <h2 class="text-white">مطورين الموقع</h2>
+        <h3 class="text-white">سائر الجهني و احمد الجهني </h3>
+    </div>
+</div>
+
+@section scripts{
+  <script>
+
+      
+
+       var btn = $("#btnFinger");
+      btn.on('click', function () {
+          FingerPrint();
+      });
+
+      function FingerPrint() {
+          var _category = $("input[name='category']:checked").val();
+          var msg = $("#msg1");
+          var ok = $("#ok1");
+          var overlay = $("#overlay");
+
+          if (_category == undefined) {
+              alert("!!! الرجاء تحديد الوصف");
+              return;
+          }
+          var url = '/Home/FingerPrint';// Url.Action("OnPostAsync", "Index");
+
+
+          $.ajax({
+              type: "GET",
+              url: url + "?category=" + _category,
+              contentType: "application/json",
+              async: true,
+              beforeSend: function () {
+                  overlay.show();
+              },
+              success: function (response) {
+                  overlay.hide();
+                  msg.show();
+
+                  btn.css("border", "border: 2px solid green;");
+                  btn.attr("src", "img/ok.png");
+                  setTimeout(function () { btn.attr("src", "img/fingar.png"); }, 1000);
+                  setTimeout(function () {
+                      msg.hide();
+
+                      btn.css("border", "none")
+                  }, 4000);
+
+              },
+              error: function (err) {
+                  console.log(err);
+                  overlay.hide();
+                  msg.hide();
+                  alert('حدث خطأ اثناء اخذ البصمة، الرجاء تواصل معنا');
+              }
+          });
+      }
+
+</script>
+}
+
+
+

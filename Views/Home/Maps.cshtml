@@ -1,0 +1,187 @@
+﻿
+
+@{
+    ViewData["Title"] = "خريطة مكة";
+}
+
+
+    <div class="container map-main pt-3">
+        <div class="row map-header pb-3 ">
+            <div class="col-5 pt-3 ">
+                <img src="/img/logo1.png" style=" height: 100px;" class="pt-2 mt-2 ml-5">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6 pl-5 pt-3">
+                <img src="/img/university.png">
+            </div>
+
+        </div>
+
+
+
+        <div class="row map-content">
+            <div class="col-12">
+                <span class="char span1"></span>
+                <span class="char span2"></span>
+                <img id="img-map" src="~/img/map/map_lamp.png" />
+            </div>
+            <div class="thank-image" id="thankImage">
+               
+            </div>
+            <div class="col-3" style=" align-items: center;text-align: left; padding-top: 5px;">نسبة المنسوبات المشاركات</div>
+            <div class="col-6 pt-3 pb-3">
+                <div class="progress">
+                    <div class="progress-bar bg-employee-bar" id="bar-employee" role="progressbar" style="width: 96%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-student-bar" id="bar-student" role="progressbar" style="width: 86%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-3" style="text-align: right;padding-top: 5px;">نسبة الطالبات المشاركات</div>
+        </div>
+
+
+
+        <div class="row pt-3 pb-3 map-footer">
+
+
+            <div class="col-sm-12 col-md-4">
+                <div class="card">
+                    <img src="/img/telgram.png" class="card-img-top" alt="..." style="width: 82%;margin-right: 38px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="color:#4b8fda"><a href="https://t.me/programming_PS">انضم الي </a></h5>
+                        <p class="card-text" style="font-size:18px;font-weight:500">مجموعة البرمجة خليها علينا</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4 ">
+                <div class="card pt-2">
+                    <img src="/img/charity.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="card ">
+                    <img src="/img/twitter.jpg" class="card-img-top" alt="..." style="width: 91%;margin-right: 15px;">
+                    <div class="card-body text-center" style="direction: ltr;">
+                        <h5 class="card-title"><a href="https://twitter.com/sayerAljohani">@@sayerAljohani</a></h5>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row map-footer" hidden="hidden">
+            <div class="col-12">
+
+            </div>
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-12 text-center">
+                <h2 class="text-white">مطورين الموقع</h2>
+                <h3 class="text-white">سائر الجهني و احمد الجهني </h3>
+            </div>
+        </div>
+
+    </div>
+
+@section Scripts{
+    <script>
+        var msg = $("#msg");
+        var bar_employee = $("#bar-employee");
+        var bar_student = $("#bar-student");
+        var thank_image = -1;
+        var _thankImage = $("#thankImage");
+        function bars(bar_e, bar_s, total) {
+            var emp = (bar_e / 100 * total).toFixed(2)
+            var stu = (bar_s / 100 * total).toFixed(2)
+            bar_employee.html(emp + "%")
+            bar_student.html(stu + "%")
+            bar_employee.css("width", emp + "%");
+            bar_student.css("width", stu + "%");
+        }
+
+        function mapOpacity(total) {
+
+            if (total <= 700) {
+                var perc = total / 700;
+                if (perc < 0.3)
+                    $("#img-map").css("opacity", 0.3);
+                else
+                    $("#img-map").css("opacity", perc);
+            }
+        }
+
+         function grayscale(total) {
+
+            setTimeout(function () {
+               
+                if (total < 700) {                  
+                    var perc = 100 - (total / 7);
+
+                    $("#img-map").css("filter", "grayscale(" + perc + "%)");                   
+                    grayscale(total)
+                } 
+            }, 50)
+        }
+
+      
+        var currnetCount = 0;
+       
+        function show() {
+           
+            var url = '/Home/GetFingers';// Url.Action("OnPostAsync", "Index");
+            $.ajax({
+                type: "GET",
+                url: url ,
+                contentType: "application/json",
+                async: true,
+                success: function (response) {
+
+                    if (thank_image == -1) {
+                        thank_image = 0;
+                        _thankImage.show("slow");
+                        currnetCount = response.total;
+                      
+                    }
+                    if (currnetCount < response.total)
+                        {
+                        _thankImage.show();
+                        currnetCount = response.total;
+                        
+                    }
+                    thank_image++;
+                    if (thank_image == 4) {
+                        _thankImage.hide("slow");
+                        thank_image = 0;
+                    }
+                    mapOpacity(response.total);
+                    bars(response.employeeRate, response.studentRate, response.total);
+                },
+                error: function (err) {
+                    console.log(err);
+                    alert('حدث خطأ اثناء عرض الخريطة، الرجاء تواصل معنا');
+                }
+            });
+
+            setTimeout(function () {
+                show();
+            }, 1000)
+        }
+
+        show();
+
+ 
+       
+
+         
+       
+        
+
+    </script>
+
+}
+
