@@ -6,7 +6,7 @@
 # وبعد ذلك استخدم التعليمات التالية لتشغيل المشروع 
 # 1. dotnet restore 
 # 2. dotnet build 
-# 3. donet watch run 
+# 3. dotnet watch run 
 
 # لانشاء قواعد البيانات  قم تنفيذ التعليمه التاليه 
 # dotnet ef database update 
