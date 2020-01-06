@@ -8,5 +8,5 @@
  2. dotnet build 
  3. dotnet watch run 
 
-# لانشاء قواعد البيانات  قم تنفيذ التعليمه التاليه 
+# لانشاء قواعد البيانات  قم بتنفيذ التعليمه التاليه 
  dotnet ef database update 
